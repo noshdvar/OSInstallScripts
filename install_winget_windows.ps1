@@ -64,10 +64,12 @@ $additionalApps = @(
     @{ Id = "AndreWiethoff.ExactAudioCopy";    Name = "Exact Audio Copy – präziser CD-Ripper" },
     @{ Id = "OO-Software.ShutUp10";            Name = "O&O ShutUp10++" },
     @{ Id = "Threema.ThreemaDesktop";          Name = "Threema Desktop" },
+    @{ Id = "OpenWhisperSystems.Signal";       Name = "Signal Desktop" },
     @{ Id = "calibre.calibre";                 Name = "Calibre" },
     @{ Id = "Microsoft.VisualStudioCode";      Name = "Visual Studio Code" },
     @{ Id = "mRemoteNG.mRemoteNG";             Name = "mRemoteNG" },
-    @{ Id = "Nextcloud.NextcloudDesktop";      Name = "Nextcloud Desktop" }
+    @{ Id = "Nextcloud.NextcloudDesktop";      Name = "Nextcloud Desktop" },
+    @{ Id = "Valve.Steam";                     Name = "Steam" }
 )
 
 foreach ($app in ($baseApps + $kdeApps + $internetApps + $additionalApps)) {
