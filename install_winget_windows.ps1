@@ -29,6 +29,7 @@ $baseApps = @(
 $kdeApps = @(
     @{ Id = "KDE.Kate";                    Name = "Kate" },
     @{ Id = "KDE.Krita";                   Name = "Krita" },
+    @{ Id = "KDE.Kdenlive";                Name = "Kdenlive" },
     @{ Id = "Audacity.Audacity";           Name = "Audacity" },
     @{ Id = "HandBrake.HandBrake";         Name = "HandBrake" },
     @{ Id = "RustDesk.RustDesk";           Name = "RustDesk" },
@@ -38,7 +39,6 @@ $kdeApps = @(
 
 # --- Browser und Kommunikation ---
 $internetApps = @(
-    @{ Id = "Microsoft.Edge";              Name = "Microsoft Edge" },
     @{ Id = "LibreWolf.LibreWolf";         Name = "LibreWolf" },
     @{ Id = "Spotify.Spotify";             Name = "Spotify" },
     @{ Id = "Telegram.TelegramDesktop";    Name = "Telegram Desktop" },
@@ -47,16 +47,17 @@ $internetApps = @(
     @{ Id = "Betterbird.Betterbird";       Name = "Betterbird" }
 )
 
-# --- Medien, PDF, System und Dateiverwaltung ---
+# --- Medien, PDF, System, Dateiverwaltung und Kommunikation ---
 $additionalApps = @(
-    @{ Id = "mpv.net";                     Name = "mpv.net" },
-    @{ Id = "qBittorrent.qBittorrent";     Name = "qBittorrent" },
+    @{ Id = "mpv.net";                         Name = "mpv.net" },
+    @{ Id = "qBittorrent.qBittorrent";         Name = "qBittorrent" },
     @{ Id = "DoubleCommander.DoubleCommander"; Name = "Double Commander" },
     @{ Id = "CrystalDiskMark.CrystalDiskMark"; Name = "CrystalDiskMark" },
-    @{ Id = "PDFsam.PDFsam";               Name = "PDFsam Basic" },
+    @{ Id = "PDFsam.PDFsam";                   Name = "PDFsam Basic" },
     @{ Id = "TheDocumentFoundation.LibreOffice"; Name = "LibreOffice" },
-    @{ Id = "MakeMKV.MakeMKV";             Name = "MakeMKV" },
-    @{ Id = "Greenshot.Greenshot";         Name = "Greenshot" },
+    @{ Id = "MakeMKV.MakeMKV";                 Name = "MakeMKV" },
+    @{ Id = "Greenshot.Greenshot";             Name = "Greenshot" },
+
     # Neu ergänzt
     @{ Id = "Mumble.Mumble";                   Name = "Mumble" },
     @{ Id = "enzo1982.freac";                  Name = "fre:ac – CD-Ripper / FLAC" },
@@ -65,7 +66,8 @@ $additionalApps = @(
     @{ Id = "Threema.ThreemaDesktop";          Name = "Threema Desktop" },
     @{ Id = "calibre.calibre";                 Name = "Calibre" },
     @{ Id = "Microsoft.VisualStudioCode";      Name = "Visual Studio Code" },
-    @{ Id = "mRemoteNG.mRemoteNG";             Name = "mRemoteNG" }
+    @{ Id = "mRemoteNG.mRemoteNG";             Name = "mRemoteNG" },
+    @{ Id = "Nextcloud.NextcloudDesktop";      Name = "Nextcloud Desktop" }
 )
 
 foreach ($app in ($baseApps + $kdeApps + $internetApps + $additionalApps)) {
@@ -74,3 +76,5 @@ foreach ($app in ($baseApps + $kdeApps + $internetApps + $additionalApps)) {
 
 Write-Host ""
 Write-Host "=== Winget-Installation abgeschlossen ===" -ForegroundColor Green
+Write-Host ""
+Write-Host "Installiere nun noch Huetro for Hue und Towdow.app aus dem Microsoft Store, sowie den Helium Browser" -ForegroundColor Green
