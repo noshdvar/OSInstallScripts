@@ -79,4 +79,4 @@ foreach ($app in ($baseApps + $kdeApps + $internetApps + $additionalApps)) {
 Write-Host ""
 Write-Host "=== Winget-Installation abgeschlossen ===" -ForegroundColor Green
 Write-Host ""
-Write-Host "Installiere nun noch Huetro for Hue und Towdow.app aus dem Microsoft Store, sowie den Helium Browser und https://www.michieldb.nl/other/cursors/ Posys 125% cursor" -ForegroundColor Green
+Write-Host "Installiere nun noch Huetro for Hue, Snapmaker Orca, Orcaslicer, Towdow.app aus dem Microsoft Store, sowie den Helium Browser und https://www.michieldb.nl/other/cursors/ Posys 125% cursor" -ForegroundColor Green
