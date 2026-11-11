@@ -21,58 +21,51 @@ function Install-WingetApp {
 $baseApps = @(
     @{ Id = "cURL.cURL";                   Name = "curl" },
     @{ Id = "GnuPG.GnuPG";                 Name = "GnuPG" },
-    @{ Id = "7zip.7zip";                   Name = "7-Zip" },
+    @{ Id = "2Team.NanaZip";               Name = „NanaZip“ },
     @{ Id = "JetBrainsMono.JetBrainsMono"; Name = "JetBrains Mono" }
+    @{ Id = "RustDesk.RustDesk";           Name = "RustDesk" },
+    @{ Id = "TeamViewer.TeamViewer";       Name = "TeamViewer" },
+    @{ Id = "Fastfetch-cli.Fastfetch";     Name = "Fastfetch" },
+    @{ Id = "LibreWolf.LibreWolf";         Name = "LibreWolf" },
+    @{ Id = "JGraph.Draw";                 Name = "draw.io Desktop" },    
+    @{ Id = "DoubleCommander.DoubleCommander"; Name = "Double Commander" },
+    @{ Id = "CrystalDiskMark.CrystalDiskMark"; Name = "CrystalDiskMark" },
+    @{ Id = "ArtCraft.PdfCraft";           Name = „PDFCraft“ },
+    @{ Id = "TheDocumentFoundation.LibreOffice"; Name = "LibreOffice" },
+    @{ Id = "Greenshot.Greenshot";         Name = "Greenshot" },
+    @{ Id = "OO-Software.ShutUp10";        Name = "O&O ShutUp10++" },
+    @{ Id = "Microsoft.VisualStudioCode";  Name = "Visual Studio Code" },
+    @{ Id = "mRemoteNG.mRemoteNG";         Name = "mRemoteNG" }
 )
 
 # --- KDE- und Desktop-Anwendungen ---
 $kdeApps = @(
-    @{ Id = "KDE.Kate";                    Name = "Kate" },
     @{ Id = "KDE.Krita";                   Name = "Krita" },
     @{ Id = "KDE.Kdenlive";                Name = "Kdenlive" },
     @{ Id = "Audacity.Audacity";           Name = "Audacity" },
     @{ Id = "HandBrake.HandBrake";         Name = "HandBrake" },
-    @{ Id = "RustDesk.RustDesk";           Name = "RustDesk" },
-    @{ Id = "TeamViewer.TeamViewer";       Name = "TeamViewer" },
-    @{ Id = "Fastfetch-cli.Fastfetch";     Name = "Fastfetch" }
-)
-
-# --- Browser und Kommunikation ---
-$internetApps = @(
-    @{ Id = "LibreWolf.LibreWolf";         Name = "LibreWolf" },
-    @{ Id = "Spotify.Spotify";             Name = "Spotify" },
+    @{ Id = "mpv.net";                     Name = "mpv.net" },
+    @{ Id = "Threema.ThreemaDesktop";      Name = "Threema Desktop" },
+    @{ Id = "OpenWhisperSystems.Signal";   Name = "Signal Desktop" },
     @{ Id = "Telegram.TelegramDesktop";    Name = "Telegram Desktop" },
     @{ Id = "Element.Element";             Name = "Element / Matrix" },
-    @{ Id = "JGraph.Draw";                 Name = "draw.io Desktop" },
-    @{ Id = "Betterbird.Betterbird";       Name = "Betterbird" }
+    @{ Id = "Spotify.Spotify";             Name = "Spotify" }
 )
 
-# --- Medien, PDF, System, Dateiverwaltung und Kommunikation ---
-$additionalApps = @(
-    @{ Id = "mpv.net";                         Name = "mpv.net" },
+# --- Medien ---
+$mediaApps = @(
     @{ Id = "qBittorrent.qBittorrent";         Name = "qBittorrent" },
-    @{ Id = "DoubleCommander.DoubleCommander"; Name = "Double Commander" },
-    @{ Id = "CrystalDiskMark.CrystalDiskMark"; Name = "CrystalDiskMark" },
-    @{ Id = "PDFsam.PDFsam";                   Name = "PDFsam Basic" },
-    @{ Id = "TheDocumentFoundation.LibreOffice"; Name = "LibreOffice" },
     @{ Id = "MakeMKV.MakeMKV";                 Name = "MakeMKV" },
-    @{ Id = "Greenshot.Greenshot";             Name = "Greenshot" },
-
-    # Neu ergänzt
+    @{ Id = "Betterbird.Betterbird";           Name = "Betterbird" },
     @{ Id = "Mumble.Mumble";                   Name = "Mumble" },
     @{ Id = "enzo1982.freac";                  Name = "fre:ac – CD-Ripper / FLAC" },
     @{ Id = "AndreWiethoff.ExactAudioCopy";    Name = "Exact Audio Copy – präziser CD-Ripper" },
-    @{ Id = "OO-Software.ShutUp10";            Name = "O&O ShutUp10++" },
-    @{ Id = "Threema.ThreemaDesktop";          Name = "Threema Desktop" },
-    @{ Id = "OpenWhisperSystems.Signal";       Name = "Signal Desktop" },
     @{ Id = "calibre.calibre";                 Name = "Calibre" },
-    @{ Id = "Microsoft.VisualStudioCode";      Name = "Visual Studio Code" },
-    @{ Id = "mRemoteNG.mRemoteNG";             Name = "mRemoteNG" },
     @{ Id = "Nextcloud.NextcloudDesktop";      Name = "Nextcloud Desktop" },
     @{ Id = "Valve.Steam";                     Name = "Steam" }
 )
 
-foreach ($app in ($baseApps + $kdeApps + $internetApps + $additionalApps)) {
+foreach ($app in ($baseApps + $kdeApps + $mediaApps)) {
     Install-WingetApp -Id $app.Id -Name $app.Name
 }
 
