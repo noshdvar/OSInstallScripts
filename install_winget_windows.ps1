@@ -19,10 +19,8 @@ function Install-WingetApp {
 
 # --- Basis- und Systemwerkzeuge ---
 $baseApps = @(
-    @{ Id = "cURL.cURL";                   Name = "curl" },
-    @{ Id = "GnuPG.GnuPG";                 Name = "GnuPG" },
-    @{ Id = "2Team.NanaZip";               Name = „NanaZip“ },
-    @{ Id = "JetBrainsMono.JetBrainsMono"; Name = "JetBrains Mono" }
+    @{ Id = "2Team.NanaZip";               Name = "NanaZip" },
+    @{ Id = "DEVCOM.JetBrainsMonoNerdFont"; Name = "JetBrains Mono Nerdfont" },
     @{ Id = "RustDesk.RustDesk";           Name = "RustDesk" },
     @{ Id = "TeamViewer.TeamViewer";       Name = "TeamViewer" },
     @{ Id = "Fastfetch-cli.Fastfetch";     Name = "Fastfetch" },
@@ -30,12 +28,15 @@ $baseApps = @(
     @{ Id = "JGraph.Draw";                 Name = "draw.io Desktop" },    
     @{ Id = "DoubleCommander.DoubleCommander"; Name = "Double Commander" },
     @{ Id = "CrystalDiskMark.CrystalDiskMark"; Name = "CrystalDiskMark" },
-    @{ Id = "ArtCraft.PdfCraft";           Name = „PDFCraft“ },
+    @{ Id = "ArtCraft.PdfCraft";           Name = "PDFCraft" },
     @{ Id = "TheDocumentFoundation.LibreOffice"; Name = "LibreOffice" },
     @{ Id = "Greenshot.Greenshot";         Name = "Greenshot" },
     @{ Id = "OO-Software.ShutUp10";        Name = "O&O ShutUp10++" },
     @{ Id = "Microsoft.VisualStudioCode";  Name = "Visual Studio Code" },
-    @{ Id = "mRemoteNG.mRemoteNG";         Name = "mRemoteNG" }
+    @{ Id = "mRemoteNG.mRemoteNG";         Name = "mRemoteNG" },
+    @{ Id = "JanDeDobbeleer.OhMyPosh";     Name = "Oh My Posh" },
+    @{ Id = "Microsoft.PowerToys";         Name = "Microsoft PowerToys" },
+    @{ Id = "CodecGuide.K-LiteCodecPack.Mega"; Name = "K-LiteCodecPack.Mega" }
 )
 
 # --- KDE- und Desktop-Anwendungen ---
@@ -68,6 +69,29 @@ $mediaApps = @(
 foreach ($app in ($baseApps + $kdeApps + $mediaApps)) {
     Install-WingetApp -Id $app.Id -Name $app.Name
 }
+
+# Profil bei Bedarf anlegen.
+$profileDirectory = Split-Path -Parent $PROFILE
+
+if (-not (Test-Path -LiteralPath $profileDirectory)) {
+    New-Item -ItemType Directory -Path $profileDirectory -Force | Out-Null
+}
+
+if (-not (Test-Path -LiteralPath $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force | Out-Null
+}
+
+# Initialisierung nur einmal hinzufuegen.
+$initLine = 'oh-my-posh init pwsh | Invoke-Expression'
+$profileContent = Get-Content -LiteralPath $PROFILE -Raw
+
+if ($profileContent -notmatch '(?m)^\s*oh-my-posh\s+init\s+pwsh\b') {
+    Add-Content -LiteralPath $PROFILE -Value "`r`n$initLine" -Encoding UTF8
+}
+
+# Profil fuer die aktuelle Sitzung laden.
+. $PROFILE
+
 
 Write-Host ""
 Write-Host "=== Winget-Installation abgeschlossen ===" -ForegroundColor Green
