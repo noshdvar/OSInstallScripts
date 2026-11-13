@@ -36,7 +36,11 @@ $baseApps = @(
     @{ Id = "mRemoteNG.mRemoteNG";         Name = "mRemoteNG" },
     @{ Id = "JanDeDobbeleer.OhMyPosh";     Name = "Oh My Posh" },
     @{ Id = "Microsoft.PowerToys";         Name = "Microsoft PowerToys" },
-    @{ Id = "CodecGuide.K-LiteCodecPack.Mega"; Name = "K-LiteCodecPack.Mega" }
+    @{ Id = "CodecGuide.K-LiteCodecPack.Mega"; Name = "K-LiteCodecPack.Mega" },
+    @{ Id = "Microsoft.WindowsTerminal";         Name = "Microsoft Windows Terminal" },
+    @{ Id = "WiresharkFoundation.Wireshark";         Name = "Wireshark" },
+    @{ Id = "WinSCP.WinSCP";               Name = "WinSCP" },
+    @{ Id = "Microsoft.Sysinternals.Suite"; Name = "Suite"}
 )
 
 # --- KDE- und Desktop-Anwendungen ---
